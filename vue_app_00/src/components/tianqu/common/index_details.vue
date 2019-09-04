@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="detail-item" v-for="(item,i) of detailsEmp" :key="i">
+    <div class="detail-item" v-for="(item,i) of indexDetails" :key="i">
         <div class="banner">
             <mt-swipe :auto="3000">
                 <mt-swipe-item>
@@ -14,6 +14,12 @@
         <div class="tpDiv">
             <p>{{item.title}}</p>
             <p >{{item.price}}</p>
+        </div>
+        <div class="btnDiv">
+            数量
+            <button @click="lessChange">-</button>
+            <span>{{n}}</span>
+            <button @click="addChange">+</button>
         </div>
         <div class="pDiv">
             <p>
@@ -36,20 +42,24 @@
 export default{
     data(){
         return{
-           detailsEmp:'',
-            id:'1'
+           indexDetails:'',
+            id:'1',
+            n:0
         }
     },
     methods:{
-        // changeIt(){
-        //     this.history.go(-1);
-        // }
+        lessChange(){
+            this.n--;
+        },
+        addChange(){
+            this.n++;
+        },
         loadMore(){
             var url="cakeemp";
             var obj={id:this.id};
             this.axios.get(url,{params:obj}).then(res=>{
-                this.detailsEmp=res.data.data;
-                console.log(this.detailsEmp)
+                this.indexDetails=res.data.data;
+                console.log(this.indexDetails)
                 console.log(res);
             })
         }
@@ -81,9 +91,18 @@ export default{
         border-radius:15px;
         margin-left:10px;
     }
+    .tpDiv p{
+        margin:20px 20px;
+    }
+    .btnDiv{
+        background:#fff;
+        border-radius:15px;
+        padding:10px 0;
+        margin-bottom:20px;
+        margin-left:10px;
+    }
     .pDiv{
         background:#fff;
-        padding:15px 0;
         line-height:2em;
     }
     .c-span{
@@ -91,6 +110,5 @@ export default{
     }
     .text-span{
         font-size:15px;
-        color:salmon;
     }
 </style>

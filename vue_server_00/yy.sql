@@ -81,7 +81,7 @@ INSERT INTO cartlist VALUES
 
 -- 创建主页中的蛋糕的详情表
 USE tq;
-CREATE TABLE detailsEmp(
+CREATE TABLE indexDetails(
     id  INT PRIMARY KEY AUTO_INCREMENT,
     carouselOne VARCHAR(100),
     carouselTwo VARCHAR(100),
@@ -91,7 +91,7 @@ CREATE TABLE detailsEmp(
     stand VARCHAR(100),
     distri VARCHAR(100)
 );
-INSERT INTO detailsEmp VALUES
+INSERT INTO indexDetails VALUES
 (NULL,'http://127.0.0.1:3000/detail-imgs/b1.jpg','http://127.0.0.1:3000/detail-imgs/b-1.jpg','方形奶油鲜奶蛋糕','￥428.00','法国奶油、新加坡黑巧克力、法国咳咳粉、臻选咖啡、意大利家里安奴酒、新西兰奶油奶酪','8-12人食 约28cm*18cm*5.5cm 提前5小时预定','全国(可配送至全国1000多城市，市区免配送费)'),
 (NULL,'http://127.0.0.1:3000/detail-imgs/b2.jpg','http://127.0.0.1:3000/detail-imgs/b-2.jpg','草莓奶油鲜奶蛋糕','￥298.00','法国奶油’新加坡黑巧克力、法国君度里娇酒、新西兰黄油、韩国幼砂糖、臻选草莓‘臻选蓝莓果','4-7人食 约19cm*7.0cm 提前5小时预定','全国(可配送至全国1000多城市，市区免配送费)'),
 (NULL,'http://127.0.0.1:3000/detail-imgs/b3.jpg','http://127.0.0.1:3000/detail-imgs/b-3.jpg','浓巧迷情冰淇淋蛋糕','￥298.00','新西兰牛奶、新西兰黄油、比利时巧克力、法国淡奶油','4-7人食 约17cm*4.3cm 提前5小时预定 若不及时食用，请放置冰箱冷冻室存储','全国(可配送至全国1000多城市，市区免配送费)'),
