@@ -47,6 +47,7 @@ server.listen(3000);
 
 
 //一：完成用户登录操作
+//http://127.0.0.1:3000/login
 server.get("/login",(req,res)=>{
   var uname=req.query.uname;
   var upwd=req.query.upwd;
@@ -64,6 +65,7 @@ server.get("/login",(req,res)=>{
 });
 
 //获取flowerslist数据
+//http://127.0.0.1:3000/list
 server.get('/list',(req,res)=>{
   //pno  页码   pageSize  页大小
   var p=req.query;
@@ -78,7 +80,9 @@ server.get('/list',(req,res)=>{
     res.send({code:1,msg:"查询成功",data:result});
   });
 })
+
 //获取cartlist数据
+//http://127.0.0.1:3000/cartlist
 server.get('/cartlist',(req,res)=>{
   var p=req.query;
   var ps=req.query;
@@ -87,4 +91,15 @@ server.get('/cartlist',(req,res)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
   });
+})
+
+//获取主页面蛋糕detailsEmp数据
+//http://127.0.0.1:3000/cakeemp?id=1
+server.get('/cakeemp',(req,res)=>{
+  var id=req.query.id;
+  var sql="SELECT carouselOne,carouselTwo,title,price,material,stand,distri FROM detailsEmp WHERE id=?" ;
+  pool.query(sql,[id],(err,result)=>{
+    if(err)throw err;
+    res.send({code:1,msg:"查询成功",data:result});
+  })
 })

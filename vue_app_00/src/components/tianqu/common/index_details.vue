@@ -1,30 +1,61 @@
 <template>
-    <div>
-        <div class="page-head">
-            <img src="../../../assets/less.png" @click="changeIt"/>
-            <img src="../../../assets/c.png"/>
-        </div>
+<div>
+    <div class="detail-item" v-for="(item,i) of detailsEmp" :key="i">
         <div class="banner">
             <mt-swipe :auto="3000">
                 <mt-swipe-item>
-                    <img src="../../../assets/b1.jpg" class="myPic">                
+                    <img :src="item.carouselOne" alt="">
                 </mt-swipe-item>
                 <mt-swipe-item>
-                    <img src="../../../assets/b-1.jpg" class="myPic">
+                    <img :src="item.carouselTwo" alt="">
                 </mt-swipe-item>
             </mt-swipe>
         </div>
+        <div class="tpDiv">
+            <p>{{item.title}}</p>
+            <p >{{item.price}}</p>
+        </div>
+        <div class="pDiv">
+            <p>
+                <span class="c-span">材料：</span>
+                <span class="text-span">{{item.material}}</span>
+            </p>
+            <p>
+                <span class="c-span">规格：</span>
+                <span class="text-span">{{item.stand}}</span>
+            </p>
+            <p>
+                <span class="c-span">配送：</span>
+                <span class="text-span">{{item.distri}}</span>
+            </p>
+        </div>
     </div>
+</div>
 </template>
 <script>
 export default{
     data(){
-        return{}
+        return{
+           detailsEmp:'',
+            id:'1'
+        }
     },
     methods:{
-        changeIt(){
-            this.history.go(-1);
+        // changeIt(){
+        //     this.history.go(-1);
+        // }
+        loadMore(){
+            var url="cakeemp";
+            var obj={id:this.id};
+            this.axios.get(url,{params:obj}).then(res=>{
+                this.detailsEmp=res.data.data;
+                console.log(this.detailsEmp)
+                console.log(res);
+            })
         }
+    },
+    created(){
+        this.loadMore();
     }
 }
 </script> 
@@ -32,17 +63,10 @@ export default{
      body{
         margin:0 !important;
     }
-    .page-head{
-        display:flex;
-        position:fixed;
-        z-index:999;
-        top:0;left:0px;
-        width:100%;
-        justify-content:space-between;
-        align-items:center;
-        background-color:rgba(0, 0, 0, 0.753);
-        height:60px;
+    .detail-item{
+        background:#eee;
     }
+
     /* 轮播 */
     .banner{
         width:100%;
@@ -51,6 +75,22 @@ export default{
     .banner .myPic{
         width:100%;
         height:350px;
-        margin-top:60px;
+    }
+    .tpDiv{
+        background:#fff;
+        border-radius:15px;
+        margin-left:10px;
+    }
+    .pDiv{
+        background:#fff;
+        padding:15px 0;
+        line-height:2em;
+    }
+    .c-span{
+        color:#8e8e8e;
+    }
+    .text-span{
+        font-size:15px;
+        color:salmon;
     }
 </style>

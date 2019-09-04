@@ -13,7 +13,6 @@
                     <div class="smallCart">
                        <img src="../../../assets/cart.png"/> 
                     </div>
-                    
                 </div>
                 <div  class="hot">
                     <img src="../../../assets/m2.jpg"/>
@@ -224,7 +223,7 @@ export default{
         margin-left:-20px;
     }
     .f-price{
-        margin-left:-100px;
+        margin-left:-50px;
         color:rgb(185, 106, 40);
     }
     /* 新品推荐的样式 */
