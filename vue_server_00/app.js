@@ -93,12 +93,22 @@ server.get('/cartlist',(req,res)=>{
   });
 })
 
-//获取主页面蛋糕detailsEmp数据
+//获取主页面蛋糕indexDetails数据
 //http://127.0.0.1:3000/cakeemp?id=1
 server.get('/cakeemp',(req,res)=>{
   var id=req.query.id;
   var sql="SELECT carouselOne,carouselTwo,title,price,material,stand,distri FROM indexDetails WHERE id=?" ;
   pool.query(sql,[id],(err,result)=>{
+    if(err)throw err;
+    res.send({code:1,msg:"查询成功",data:result});
+  })
+})
+
+// 获取主页面数据
+//http://127.0.0.1:3000/cakelist?nan=A
+server.get('/cakelist',(req,res)=>{
+  var sql="SELECT mpicture,nan,title,mprice FROM indexDetails";
+  pool.query(sql,(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
   })
