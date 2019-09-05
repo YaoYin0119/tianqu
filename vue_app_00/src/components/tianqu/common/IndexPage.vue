@@ -2,11 +2,14 @@
 <div id="indexPage">
     <!-- 热销推荐 -->
     <h3 class="myH3">热销推荐</h3>
-    <div class="flex" @click="changeDetail">
+    <div class="flex">
         <div class="indexItem" v-for="(item,i) of indexDetails" :key="i">
-            <img :src="item.mpicture"/>
+            <img :src="item.mpicture"  @click="changeDetail(item.id)"/>
             <p class="f-title">{{item.title}}</p>
             <p class="f-mprice">{{item.mprice}}</p>
+            <div class="cartDiv">
+                <img src="../../../assets/c.png" @click="goCart">
+            </div>
         </div>
     </div> 
     <dir style="margin-top:60px;"></dir>
@@ -16,10 +19,13 @@
 export default{
     data(){
         return{
-            indexDetails:[],
+            indexDetails:[]
         }
     },
     methods:{
+        goCart(){
+            this.$router.push('/cart')
+        },
         loadMore(){
             var url="cakelist";
             this.axios.get(url).then(res=>{
@@ -27,14 +33,25 @@ export default{
                 console.log(this.indexDetails);
             })
         },
-        changeDetail(){
-            this.$router.push('details');
-            // this.history.go(-1);
+        changeDetail(id){
+             this.$toast({
+                message:'正在前往详情...',
+                duration:500
+            });
+            // console.log(id);
+            setTimeout(()=>{
+                this.$router.push({
+                    path:'details',
+                        query:{
+                        id:id
+                    }
+                });
+            },300)
         }
     },
     created(){
         this.loadMore();
-        console.log("2:created 组件创建成功");
+        // console.log("2:created 组件创建成功");
     }
 }
 </script>
@@ -65,5 +82,12 @@ export default{
     color:rgb(185, 106, 40);
     margin-left:-50px;
 }
-
+.cartDiv{
+    background:sienna;
+    width:30px;height:30px;
+    float:right;
+    margin-top:-45px;
+    margin-right:10px;
+    border-radius:50%;
+}
 </style>

@@ -7,8 +7,10 @@
                 {{item.price}}
                 <s class="f-notPrice">{{item.notPrice}}</s>
             </p>
-        </div> 
+        </div>
     </div>
+
+    
 </template>
 <script>
 export default{

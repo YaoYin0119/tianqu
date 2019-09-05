@@ -107,7 +107,7 @@ server.get('/cakeemp',(req,res)=>{
 // 获取主页面数据
 //http://127.0.0.1:3000/cakelist?nan=A
 server.get('/cakelist',(req,res)=>{
-  var sql="SELECT mpicture,nan,title,mprice FROM indexDetails";
+  var sql="SELECT mpicture,nan,title,mprice,id FROM indexDetails";
   pool.query(sql,(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});

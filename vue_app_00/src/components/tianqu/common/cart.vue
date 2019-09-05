@@ -28,6 +28,7 @@ export default{
     },
     methods:{
         toHome(){
+            // this.$router.push('/Home01')
             history.go(-1);
         },
         loadMore(){

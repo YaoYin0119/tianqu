@@ -1,13 +1,19 @@
 <template>
-<div>
+<div class="v_container">
+    <!-- 顶部标题栏 -->
+    <div class="page-head">
+        <img class="imageLeft" src="../../../assets/less.png" @click="goBack"/>
+        <img class="imageRight" src="../../../assets/c.png" @click="goCart"/>
+    </div>
+    <!-- 内容区域 -->
     <div class="detail-item" v-for="(item,i) of indexDetails" :key="i">
         <div class="banner">
             <mt-swipe :auto="3000">
                 <mt-swipe-item>
-                    <img :src="item.carouselOne" alt="">
+                    <img :src="item.carouselOne" class="myPic"/>
                 </mt-swipe-item>
                 <mt-swipe-item>
-                    <img :src="item.carouselTwo" alt="">
+                    <img :src="item.carouselTwo" class="myPic"/>
                 </mt-swipe-item>
             </mt-swipe>
         </div>
@@ -36,18 +42,36 @@
             </p>
         </div>
     </div>
+    <!-- 底部 -->
+    <mt-tabbar fixed>
+        <mt-tab-item>
+            <div class="bottomDiv">
+                <img src="../../../assets/kf1.png" >
+                <mt-button class="btnLeft" type="primary">加入购物车</mt-button>
+                <mt-button class="btnRight" type="danger">立即购买</mt-button>
+            </div>
+        </mt-tab-item>
+    </mt-tabbar>
 </div>
 </template>
 <script>
+// 引入子组件：顶部标题
+ import TitleBar from './TitleBar.vue';
 export default{
     data(){
         return{
            indexDetails:'',
-            id:'1',
+            // id:'',
             n:0
         }
     },
-    methods:{
+    methods:{ 
+        goCart(){
+            this.$router.push('/cart')
+        },
+        goBack(){
+            history.go(-1);
+        },
         lessChange(){
             this.n--;
         },
@@ -55,28 +79,43 @@ export default{
             this.n++;
         },
         loadMore(){
+            var id=this.$route.query.id;
+            //  this.id=id;
             var url="cakeemp";
-            var obj={id:this.id};
+            var obj={id:id};
             this.axios.get(url,{params:obj}).then(res=>{
                 this.indexDetails=res.data.data;
-                console.log(this.indexDetails)
-                console.log(res);
+               console.log(this.indexDetails)
+               console.log(res);
+               console.log(id)
             })
         }
     },
     created(){
         this.loadMore();
-    }
+    },
+    components: {
+      "titlebar": TitleBar
+    },
 }
 </script> 
 <style scoped>
      body{
         margin:0 !important;
     }
+    .v_container {
+    overflow: hidden;
+    }
     .detail-item{
         background:#eee;
+        margin-top:60px;
     }
-
+    .imageLeft{
+        margin-left:20px;
+    }
+    .imageRight{
+        margin-right:20px;
+    }
     /* 轮播 */
     .banner{
         width:100%;
@@ -110,5 +149,26 @@ export default{
     }
     .text-span{
         font-size:15px;
+    }
+    .bottomDiv{
+        background:#fff;
+    }
+    .bottomDiv>img{
+        float:left;
+        margin-left:20px;
+    }
+    .btnLeft{
+        left:-20px;
+        border-radius:20px;
+        outline: none;
+        border: none;
+        box-sizing: border-box;
+    }
+    .btnRight{
+        margin-right:-100px;
+        border-radius:20px;
+        outline: none;
+        border: none;
+        box-sizing: border-box;
     }
 </style>
