@@ -12,6 +12,18 @@
             </div>
         </div>
     </div> 
+    <!-- 品质鲜花 -->
+    <h1 class="myH3">品质鲜花</h1>
+    <div class="flex">
+        <div class="indexItem" v-for="(item,i) of indexFlowDel" :key="i">
+            <img :src="item.xpicture"/>
+            <p class="f-title">{{item.xtitle}}</p>
+            <p class="f-mprice">{{item.xmprice}}</p>
+            <!-- <div class="cartDiv">
+                <img src="../../../assets/c.png" @click="goCart">
+            </div> -->
+        </div>
+    </div>
     <dir style="margin-top:60px;"></dir>
 </div>
 </template>
@@ -31,6 +43,11 @@ export default{
             this.axios.get(url).then(res=>{
                 this.indexDetails=res.data.data;
                 console.log(this.indexDetails);
+            });
+            var url="flowerlist";
+            this.axios.get(url).then(res=>{
+                this.indexFlowDel=res.data.data;
+                console.log(this.indexFlowDel);
             })
         },
         changeDetail(id){

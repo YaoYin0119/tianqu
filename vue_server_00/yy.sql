@@ -108,3 +108,19 @@ INSERT INTO indexDetails VALUES
 (NULL,'K','http://127.0.0.1:3000/indexImages/m11.jpg','￥499.00 /8寸','http://127.0.0.1:3000/detail-imgs/b11.jpg','http://127.0.0.1:3000/detail-imgs/b-11.jpg','沙布蕾芭菲蛋糕','￥298.00','法国淡奶油、香荚兰、法国可可粉、巧克力酱、瑞士白巧克力、新西兰黄油、行幼砂糖','4-7人食 约23cm*7.5cm 提前5小时预定','全国(可配送至全国1000多城市，市区免配送费)'),
 (NULL,'L','http://127.0.0.1:3000/indexImages/m12.jpg','￥359.00 /8寸','http://127.0.0.1:3000/detail-imgs/b12.jpg','http://127.0.0.1:3000/detail-imgs/b-12.jpg','摩登绿茶蛋糕','￥298.00','韩国幼砂糖、比利时白巧克力、新西兰黄油、甄选抹茶粉、防潮糖粉、法国淡奶油','4-7人食 约23cm*14cm*7.5cm 提前5小时预定','全国(可配送至全国1000多城市，市区免配送费)');
 
+-- 创建主页面鲜花的数据表
+USE tq;
+CREATE TABLE indexFlowDel(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nan VARCHAR(10),
+    xpicture VARCHAR(100),
+    xtitle VARCHAR(100),
+    xprice VARCHAR(20)
+)
+INSERT INTO indexFlowDel VALUES
+(NULL,'M','http://127.0.0.1:3000/indexImages/x1.jpg','约定今生+11支红玫瑰','￥158'),
+(NULL,'N','http://127.0.0.1:3000/indexImages/x2.jpg','爱情原动力+19支红玫瑰','￥188'),
+(NULL,'O','http://127.0.0.1:3000/indexImages/x3.jpg','永不凋零的爱+99支红玫瑰','￥488'),
+(NULL,'P','http://127.0.0.1:3000/indexImages/X4.jpg','3支蓝色绣球+19粉佳人...','￥388'),
+(NULL,'Q','http://127.0.0.1:3000/indexImages/x5.jpg','温柔海浪+33支粉佳人','￥298'),
+(NULL,'R','http://127.0.0.1:3000/indexImages/x6.jpg','遇见你+19支红玫瑰','￥218')
