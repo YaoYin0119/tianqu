@@ -17,11 +17,11 @@
     <div class="flex">
         <div class="indexItem" v-for="(item,i) of indexFlowDel" :key="i">
             <img :src="item.xpicture"/>
-            <p class="f-title">{{item.xtitle}}</p>
-            <p class="f-mprice">{{item.xmprice}}</p>
-            <!-- <div class="cartDiv">
+            <p class="x-title">{{item.xtitle}}</p>
+            <p class="x-price">{{item.xprice}}</p>
+            <div class="cartDiv">
                 <img src="../../../assets/c.png" @click="goCart">
-            </div> -->
+            </div>
         </div>
     </div>
     <dir style="margin-top:60px;"></dir>
@@ -31,7 +31,8 @@
 export default{
     data(){
         return{
-            indexDetails:[]
+            indexDetails:[],
+            indexFlowDel:[]
         }
     },
     methods:{
@@ -48,7 +49,7 @@ export default{
             this.axios.get(url).then(res=>{
                 this.indexFlowDel=res.data.data;
                 console.log(this.indexFlowDel);
-            })
+            });
         },
         changeDetail(id){
              this.$toast({
@@ -98,6 +99,14 @@ export default{
 .f-mprice{
     color:rgb(185, 106, 40);
     margin-left:-50px;
+}
+.x-title{
+    font-size:15px;
+    color:#000;
+}
+.x-price{
+    color:rgb(185, 106, 40);
+    margin-left:-100px;
 }
 .cartDiv{
     background:sienna;
