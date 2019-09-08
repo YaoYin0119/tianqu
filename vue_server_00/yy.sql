@@ -111,7 +111,7 @@ INSERT INTO indexDetails VALUES
 -- 创建主页面鲜花的数据表
 USE tq;
 CREATE TABLE indexFlowDel(
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    lid INT PRIMARY KEY AUTO_INCREMENT,
     nan VARCHAR(10),
     xpicture VARCHAR(100),
     xtitle VARCHAR(100),

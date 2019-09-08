@@ -21,6 +21,7 @@
             <p>{{item.title}}</p>
             <p >{{item.price}}</p>
         </div>
+        <!-- 数量计算按钮 -->
         <div class="btnDiv">
             数量
             <button @click="lessChange">-</button>
@@ -55,8 +56,6 @@
 </div>
 </template>
 <script>
-// 引入子组件：顶部标题
- import TitleBar from './TitleBar.vue';
 export default{
     data(){
         return{
@@ -93,10 +92,7 @@ export default{
     },
     created(){
         this.loadMore();
-    },
-    components: {
-      "titlebar": TitleBar
-    },
+    }
 }
 </script> 
 <style scoped>

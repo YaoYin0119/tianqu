@@ -16,7 +16,7 @@
     <h1 class="myH3">品质鲜花</h1>
     <div class="flex">
         <div class="indexItem" v-for="(item,i) of indexFlowDel" :key="i">
-            <img :src="item.xpicture"/>
+            <img :src="item.xpicture" @click="changeFlowerDetail(item.lid)"/>
             <p class="x-title">{{item.xtitle}}</p>
             <p class="x-price">{{item.xprice}}</p>
             <div class="cartDiv">
@@ -60,8 +60,23 @@ export default{
             setTimeout(()=>{
                 this.$router.push({
                     path:'details',
-                        query:{
+                    query:{
                         id:id
+                    }
+                });
+            },300)
+        },
+        changeFlowerDetail(lid){
+            this.$toast({
+                message:'正在前往详情...',
+                duration:500
+            });
+            // console.log(lid);
+            setTimeout(()=>{
+                this.$router.push({
+                    path:'detailsf',
+                    query:{
+                        lid:lid
                     }
                 });
             },300)
