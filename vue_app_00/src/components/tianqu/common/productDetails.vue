@@ -34,14 +34,27 @@
                 <span class="text-span">{{item.material}}</span>
             </p>
             <p>
+                <span class="c-span">味道：</span>
+                <span class="text-span">{{item.flavour}}</span>
+            </p>
+            <p>
+                <span class="c-span">注意：</span>
+                <span class="text-span">{{item.attentive}}</span>
+            </p>
+            <p>
                 <span class="c-span">规格：</span>
                 <span class="text-span">{{item.stand}}</span>
+            </p>
+            <p>
+                <span class="c-span">附送：</span>
+                <span class="text-span">{{item.fgiv}}</span>
             </p>
             <p>
                 <span class="c-span">配送：</span>
                 <span class="text-span">{{item.distri}}</span>
             </p>
         </div>
+        <div style="margin-top:50px;"></div>
     </div>
     <!-- 底部 -->
     <mt-tabbar fixed>

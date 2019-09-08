@@ -74,12 +74,15 @@ server.get('/list',(req,res)=>{
   // if(!ps){ps=4}
   // var offset=(p-1)*ps;
   // ps=parseInt(ps);
-  var sql="SELECT id,title,price,notPrice,picture FROM list";
+  var sql="SELECT nan,title,price,notPrice,picture FROM list";
   pool.query(sql,[p,ps],(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
   });
 })
+// 获取flowerslist详情页数据
+
+
 
 //获取cartlist数据
 //http://127.0.0.1:3000/cartlist
@@ -107,7 +110,7 @@ server.get('/cakelist',(req,res)=>{
 //http://127.0.0.1:3000/cakeemp?id=1
 server.get('/cakeemp',(req,res)=>{
   var id=req.query.id;
-  var sql="SELECT carouselOne,carouselTwo,title,price,material,stand,distri FROM indexDetails WHERE id=?" ;
+  var sql="SELECT carouselOne,carouselTwo,title,price,material,flavour,attentive,stand,fgiv,distri FROM indexDetails WHERE id=?" ;
   pool.query(sql,[id],(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});

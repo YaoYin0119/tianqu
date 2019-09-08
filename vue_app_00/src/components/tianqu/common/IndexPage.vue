@@ -71,7 +71,7 @@ export default{
             });
             setTimeout(()=>{
                 this.$router.push({
-                    path:'detailsf',
+                    path:'Detailsf',
                     query:{lid:lid}
                 })
             },300)
