@@ -11,6 +11,7 @@ import flowersList from "./components/tianqu/common/flowersList.vue"
 import cart from "./components/tianqu/common/cart.vue"
 import Login from "./components/tianqu/common/Login.vue"
 import Details from './components/tianqu/common/productDetails.vue'
+import Detailsf from './components/tianqu/common/product-fDetails.vue'
 
 // 2：为组件指定访问路径 /Exam01
 Vue.use(Router)
@@ -23,6 +24,7 @@ routes: [
 {path:"/flowersList",component:flowersList},
 {path:"/cart",component:cart},
 {path:"/Login",component:Login},
-{path:"/Details",component:Details}
+{path:"/Details",component:Details},
+{path:"/Detailsf",component:Detailsf}
 ]
 })

@@ -93,7 +93,17 @@ server.get('/cartlist',(req,res)=>{
   });
 })
 
-//获取主页面蛋糕indexDetails数据
+// 获取主页面蛋糕数据
+//http://127.0.0.1:3000/cakelist?nan=A
+server.get('/cakelist',(req,res)=>{
+  var sql="SELECT mpicture,nan,title,mprice,id FROM indexDetails";
+  pool.query(sql,(err,result)=>{
+    if(err)throw err;
+    res.send({code:1,msg:"查询成功",data:result});
+  })
+})
+
+//获取主页面蛋糕详情页数据
 //http://127.0.0.1:3000/cakeemp?id=1
 server.get('/cakeemp',(req,res)=>{
   var id=req.query.id;
@@ -104,20 +114,21 @@ server.get('/cakeemp',(req,res)=>{
   })
 })
 
-// 获取主页面蛋糕数据
-//http://127.0.0.1:3000/cakelist?nan=A
-server.get('/cakelist',(req,res)=>{
-  var sql="SELECT mpicture,nan,title,mprice,id FROM indexDetails";
-  pool.query(sql,(err,result)=>{
-    if(err)throw err;
-    res.send({code:1,msg:"查询成功",data:result});
-  })
-})
 // 获取主页面鲜花的数据
 //http://127.0.0.1:3000/flowerlist?nan=M
 server.get('/flowerlist',(req,res)=>{
   var sql="SELECT nan,xpicture,xtitle,xprice FROM indexFlowDel";
   pool.query(sql,(err,result)=>{
+    if(err)throw err;
+    res.send({code:1,msg:"查询成功",data:result});
+  })
+})
+// 获取主页面鲜花详情页的数据
+//http://127.0.0.1:3000/flowerdel?id=1
+server.get('/flowerdel',(req,res)=>{
+  var id=req.query.id;
+  sql="SELECT carouselOne,carouselTwo,xtitle,xprice,xnoprice,material,pack,flowuage,fgive,pgive FROM indexFlowDel WHERE id=?";
+  pool.query(sql,[id],(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
   })

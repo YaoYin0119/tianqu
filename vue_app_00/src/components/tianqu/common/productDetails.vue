@@ -5,7 +5,7 @@
         <img class="imageLeft" src="../../../assets/less.png" @click="goBack"/>
         <img class="imageRight" src="../../../assets/c.png" @click="goCart"/>
     </div>
-    <!-- 内容区域 -->
+    <!-- 蛋糕的内容区域 -->
     <div class="detail-item" v-for="(item,i) of indexDetails" :key="i">
         <div class="banner">
             <mt-swipe :auto="3000">
@@ -85,9 +85,9 @@ export default{
             var obj={id:id};
             this.axios.get(url,{params:obj}).then(res=>{
                 this.indexDetails=res.data.data;
-               console.log(this.indexDetails)
-               console.log(res);
-               console.log(id)
+                console.log(this.indexDetails)
+                // console.log(res);
+                // console.log(id);
             })
         }
     },
@@ -100,7 +100,7 @@ export default{
 }
 </script> 
 <style scoped>
-     body{
+    body{
         margin:0 !important;
     }
     .v_container {
