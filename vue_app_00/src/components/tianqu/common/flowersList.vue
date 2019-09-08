@@ -56,11 +56,11 @@ export default{
 .f-title{
         font-size:15px;
         color:#000;
-        margin-left:-40px;
+        margin-left:-30px;
 }
 .f-price{
     color:rgb(185, 106, 40);
-    margin-left:-50px;
+    margin-left:-40px;
 }
 .f-notPrice{
     color:#000;
