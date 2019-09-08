@@ -49,7 +49,7 @@ export default{
             this.axios.get(url).then(res=>{
                 this.indexFlowDel=res.data.data;
                 console.log(this.indexFlowDel);
-            });
+            })
         },
         changeDetail(id){
              this.$toast({
@@ -60,10 +60,8 @@ export default{
             setTimeout(()=>{
                 this.$router.push({
                     path:'details',
-                    query:{
-                        id:id
-                    }
-                });
+                    query:{id:id}
+                })
             },300)
         },
         changeFlowerDetail(lid){
@@ -71,14 +69,11 @@ export default{
                 message:'正在前往详情...',
                 duration:500
             });
-            // console.log(lid);
             setTimeout(()=>{
                 this.$router.push({
                     path:'detailsf',
-                    query:{
-                        lid:lid
-                    }
-                });
+                    query:{lid:lid}
+                })
             },300)
         }
     },

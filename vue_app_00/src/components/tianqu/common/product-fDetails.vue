@@ -103,6 +103,12 @@ export default{
         background:#eee;
         margin-top:60px;
     }
+    .imageLeft{
+        margin-left:20px;
+    }
+    .imageRight{
+        margin-right:20px;
+    }
     /* 轮播 */
     .banner{
         width:100%;
