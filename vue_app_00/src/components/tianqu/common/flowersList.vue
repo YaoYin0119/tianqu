@@ -48,7 +48,7 @@ export default{
 }
 .goods-item{
     width: 48%;
-    height: 230px;
+    height: 250px;
     text-align: center;
     background: rgba(14, 9, 9, 0.068);
     margin-bottom: 10px;

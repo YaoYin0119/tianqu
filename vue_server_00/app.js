@@ -120,7 +120,7 @@ server.get('/cakeemp',(req,res)=>{
 // 获取主页面鲜花的数据
 //http://127.0.0.1:3000/flowerlist?nan=M
 server.get('/flowerlist',(req,res)=>{
-  var sql="SELECT nan,xpicture,xtitle,xprice FROM indexFlowDel";
+  var sql="SELECT nan,lid,xpicture,xtitle,xprice FROM indexFlowDel";
   pool.query(sql,(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
