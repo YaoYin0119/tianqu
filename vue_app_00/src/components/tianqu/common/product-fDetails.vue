@@ -40,6 +40,41 @@
             <p>配送：{{item.pgive}}</p>
         </div>
     </div>
+    <!-- 全部鲜花 -->
+    <div class="detail-item" v-for="(item,i) of list" :key="i">
+        <div class="banner">
+            <mt-swipe :auto="3000">
+                <mt-swipe-item>
+                    <img :src="item.carouselOne" class="myPic"/>
+                </mt-swipe-item>
+                <mt-swipe-item>
+                    <img :src="item.carouselTwo" class="myPic"/>
+                </mt-swipe-item>
+            </mt-swipe>
+        </div>
+        <div class="tpDiv">
+            <p>{{item.title}}</p>
+            <p class="f-price">
+                {{item.price}}
+                <s class="f-notPrice">{{item.notPrice }}</s>
+            </p>
+        </div>
+        <!-- 数量计算按钮 -->
+        <div class="btnDiv">
+            数量
+            <button @click="lessChange">-</button>
+            <span>{{n}}</span>
+            <button @click="addChange">+</button>
+        </div>
+        <!-- 内容文字加说明 -->
+        <div class="textDiv">
+            <p>材料：{{item.material}}</p>
+            <p>包装：{{item.pack}}</p>
+            <p>花语：{{item.flowuage}}</p>
+            <p>附送：{{item.fgive}}</p>
+            <p>配送：{{item.pgive}}</p>
+        </div>
+    </div>
     <!-- 底部 -->
     <mt-tabbar fixed>
         <mt-tab-item>
@@ -57,6 +92,7 @@ export default{
     data(){
         return{
             indexFlowDel:'',
+            list:'',
             n:0,
             // lid:'1'
            
@@ -84,6 +120,15 @@ export default{
                 console.log(this.indexFlowDel)
                 console.log(res);
                 console.log(lid);
+            });
+            var mid=this.$router.query.mid;
+            var url="flist";
+            var obj={mid:mid};
+            this.axios.get(url,{params:obj}).then(res=>{
+                this.list=res.data.data;
+                console.log(this.list); 
+                console.log(res);
+                console.log(mid);
             })
         }
     },

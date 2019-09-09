@@ -1,7 +1,7 @@
 <template>
     <div class="list-app">
         <div class="goods-item" v-for="(item,i) of list" :key="i">
-            <img :src="item.picture"/>
+            <img :src="item.picture" @click="changefDetail(item.mid)"/>
             <p class="f-title">{{item.title}}</p>
             <p class="f-price">
                 {{item.price}}
@@ -22,7 +22,7 @@ export default{
         loadMore(){
             //功能：获取商品分页数据
             // 1.发送请求
-            var url="list";
+            var url="inlist";
             // this.pno++;
             // var obj={pno:this.pno};
             this.axios.get(url).then(res=>{
@@ -31,6 +31,19 @@ export default{
                 // 3.将返回结果保存
                 this.list=res.data.data;
             })
+        },
+        changefDetail(mid){
+            this.$toast({
+                message:'正在前往详情...',
+                duration:500
+            });
+            // console.log(mid);
+            setTimeout(()=>{
+                this.$router.push({
+                    path:'detailsf',
+                    query:{mid:mid}
+                })
+            },300)
         }
     },
     created(){

@@ -66,22 +66,23 @@ server.get("/login",(req,res)=>{
 
 //获取flowerslist数据
 //http://127.0.0.1:3000/list
-server.get('/list',(req,res)=>{
-  //pno  页码   pageSize  页大小
-  var p=req.query;
-  var ps=req.query;
-  // if(!p){p=1}
-  // if(!ps){ps=4}
-  // var offset=(p-1)*ps;
-  // ps=parseInt(ps);
-  var sql="SELECT nan,title,price,notPrice,picture FROM list";
-  pool.query(sql,[p,ps],(err,result)=>{
+server.get('/inlist',(req,res)=>{
+  var sql="SELECT nan,mid,title,price,notPrice,picture FROM list";
+  pool.query(sql,(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
   });
 })
 // 获取flowerslist详情页数据
-
+// http://127.0.0.1:3000/flist?mid=1
+server.get('/flist',(req,res)=>{
+  var mid=req.query.mid;
+  var sql="SELECT carouselOne,carouselTwo,title,price,notPrice,material,pack,flowuage,fgive,pgive FROM list WHERE mid=?";
+  pool.query(sql,[mid],(err,result)=>{
+    if(err)throw err;
+    res.send({code:1,msg:"查询成功",data:result});
+  })
+})
 
 
 //获取cartlist数据
