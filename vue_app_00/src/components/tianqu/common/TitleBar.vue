@@ -7,6 +7,7 @@
             <div class="right-head">
                 <img class="img-ss" src="../../../assets/ss.png">
                 <input type="text" placeholder="请搜索">
+                <span class="textLogin" @click="goCart">登录</span>
             </div>
         </div>
         <div v-else-if="leftTitle=='flowersList'">
@@ -24,6 +25,11 @@ export default{
     },
     props:{
         leftTitle:{default:""}
+    },
+    methods:{
+        goCart(){
+            this.$router.push('/cart');
+        }
     }
 }
 </script>
@@ -47,7 +53,7 @@ body {
 }
 .right-head{
     display:flex;
-    margin-left:100px;
+    margin-left:80px;
     margin-top:-35px;
     position:fixed;
 }
@@ -73,5 +79,9 @@ input{
 .page-head div>p{
     color:#fff;
     
+}
+.textLogin{
+    color:#fff;
+    font-size:20px;
 }
 </style>

@@ -111,7 +111,7 @@ server.get('/cakelist',(req,res)=>{
 //http://127.0.0.1:3000/cakeemp?id=1
 server.get('/cakeemp',(req,res)=>{
   var id=req.query.id;
-  var sql="SELECT carouselOne,carouselTwo,title,price,material,flavour,attentive,stand,fgiv,distri FROM indexDetails WHERE id=?" ;
+  var sql="SELECT carouselOne,carouselTwo,title,price,material,flavour,attentive,stand,fgiv,distri,photo FROM indexDetails WHERE id=?" ;
   pool.query(sql,[id],(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
@@ -131,7 +131,7 @@ server.get('/flowerlist',(req,res)=>{
 //http://127.0.0.1:3000/flowerdel?lid=1
 server.get('/flowerdel',(req,res)=>{
   var lid=req.query.lid;
-  sql="SELECT carouselOne,carouselTwo,xtitle,xprice,xnoprice,material,pack,flowuage,fgive,pgive FROM indexFlowDel WHERE lid=?";
+  sql="SELECT carouselOne,carouselTwo,xtitle,xprice,xnoprice,material,pack,flowuage,fgive,pgive,photo FROM indexFlowDel WHERE lid=?";
   pool.query(sql,[lid],(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});

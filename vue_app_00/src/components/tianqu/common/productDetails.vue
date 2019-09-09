@@ -54,7 +54,9 @@
                 <span class="text-span">{{item.distri}}</span>
             </p>
         </div>
-        <img :src="item.photo"/>
+        <div>
+            <img :src="item.photo" class="cakeImgae"/>
+        </div>
         <div style="margin-top:50px;"></div>
     </div>
     <!-- 底部 -->
@@ -180,5 +182,8 @@ export default{
         outline: none;
         border: none;
         box-sizing: border-box;
+    }
+    .cakeImgae{
+        width:100%;
     }
 </style>

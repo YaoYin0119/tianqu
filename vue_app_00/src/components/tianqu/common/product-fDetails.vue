@@ -54,6 +54,9 @@
                 <span class="text-span">{{item.pgive}}</span>
             </p>
         </div>
+        <div class="details-image" v-for="(item,i) of photo" :key="i">
+            <img :src="item.photo" class="cakeImgae"/>
+        </div>
     </div>
     <!-- 全部鲜花 -->
     <div class="detail-item" v-for="(item,i) of list" :key="i">
@@ -125,6 +128,7 @@ export default{
             indexFlowDel:'',
             list:'',
             n:0,
+            photo:''
             // lid:'1'
            
         }
@@ -148,18 +152,20 @@ export default{
             var obj={lid:lid};
             this.axios.get(url,{params:obj}).then(res=>{
                 this.indexFlowDel=res.data.data;
-                console.log(this.indexFlowDel)
-                console.log(res);
-                console.log(lid);
+                var photos=this.indexFlowDel[0].photo
+                this.photo=photos.split(',');
+                console.log(res.data.data)
+                console.log(photos);
+                console.log(this.photo);
             });
             var mid=this.$route.query.mid;
             var url="flist";
             var obj={mid:mid};
             this.axios.get(url,{params:obj}).then(res=>{
                 this.list=res.data.data;
-                console.log(this.list); 
-                console.log(res);
-                console.log(mid);
+                // console.log(this.list); 
+                // console.log(res);
+                // console.log(mid);
             })
         }
     },
@@ -225,6 +231,9 @@ export default{
     }
     .text-span{
         font-size:15px;
+    }
+    .cakeImgae{
+        width:100%;
     }
     /* 底部 */
     .bottomDiv{
