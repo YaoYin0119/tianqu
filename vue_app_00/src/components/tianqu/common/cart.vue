@@ -50,7 +50,7 @@ export default{
     background-color:#eee;
 }
 .cartDiv{
-    width:350px;
+    width:100%;
     height:350px;
     margin:60px 0px;
     text-align:center;

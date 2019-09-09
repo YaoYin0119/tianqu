@@ -67,7 +67,7 @@ server.get("/login",(req,res)=>{
 //获取flowerslist数据
 //http://127.0.0.1:3000/list
 server.get('/inlist',(req,res)=>{
-  var sql="SELECT nan,mid,title,price,notPrice,picture FROM list";
+  var sql="SELECT mid,nan,title,price,notPrice,picture FROM list";
   pool.query(sql,(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});

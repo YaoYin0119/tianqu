@@ -54,6 +54,7 @@
                 <span class="text-span">{{item.distri}}</span>
             </p>
         </div>
+        <img :src="item.photo"/>
         <div style="margin-top:50px;"></div>
     </div>
     <!-- 底部 -->

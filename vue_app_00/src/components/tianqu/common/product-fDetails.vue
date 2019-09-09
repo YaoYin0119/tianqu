@@ -33,11 +33,26 @@
         </div>
         <!-- 内容文字加说明 -->
         <div class="textDiv">
-            <p>材料：{{item.material}}</p>
-            <p>包装：{{item.pack}}</p>
-            <p>花语：{{item.flowuage}}</p>
-            <p>附送：{{item.fgive}}</p>
-            <p>配送：{{item.pgive}}</p>
+            <p>
+                <span class="c-span">材料：</span>
+                <span class="text-span">{{item.material}}</span>
+            </p>
+            <p>
+                <span class="c-span">包装：</span>
+                <span class="text-span">{{item.pack}}</span>
+            </p>
+            <p>
+                <span class="c-span">花语：</span>
+                <span class="text-span">{{item.flowuage}}</span>
+            </p>
+            <p>
+                <span class="c-span">附送：</span>
+                <span class="text-span">{{item.fgive}}</span>
+            </p>
+            <p>
+                <span class="c-span">配送：</span>
+                <span class="text-span">{{item.pgive}}</span>
+            </p>
         </div>
     </div>
     <!-- 全部鲜花 -->
@@ -68,12 +83,28 @@
         </div>
         <!-- 内容文字加说明 -->
         <div class="textDiv">
-            <p>材料：{{item.material}}</p>
-            <p>包装：{{item.pack}}</p>
-            <p>花语：{{item.flowuage}}</p>
-            <p>附送：{{item.fgive}}</p>
-            <p>配送：{{item.pgive}}</p>
+            <p>
+                <span class="c-span">材料：</span>
+                <span class="text-span">{{item.material}}</span>
+            </p>
+            <p>
+                <span class="c-span">包装：</span>
+                <span class="text-span">{{item.pack}}</span>
+            </p>
+            <p>
+                <span class="c-span">花语：</span>
+                <span class="text-span">{{item.flowuage}}</span>
+            </p>
+            <p>
+                <span class="c-span">附送：</span>
+                <span class="text-span">{{item.fgive}}</span>
+            </p>
+            <p>
+                <span class="c-span">配送：</span>
+                <span class="text-span">{{item.pgive}}</span>
+            </p>
         </div>
+        <div style="margin-top:50px;"></div>
     </div>
     <!-- 底部 -->
     <mt-tabbar fixed>
@@ -103,7 +134,7 @@ export default{
             this.$router.push('/cart')
          },
         goBack(){
-             history.go(-1);
+            history.go(-1);
          },
         lessChange(){
             this.n--;
@@ -121,7 +152,7 @@ export default{
                 console.log(res);
                 console.log(lid);
             });
-            var mid=this.$router.query.mid;
+            var mid=this.$route.query.mid;
             var url="flist";
             var obj={mid:mid};
             this.axios.get(url,{params:obj}).then(res=>{
@@ -187,6 +218,12 @@ export default{
     .textDiv{
         background:#fff;
         line-height:2em;
+        font-size:15px;
+    }
+    .c-span{
+        color:#8e8e8e;
+    }
+    .text-span{
         font-size:15px;
     }
     /* 底部 */
