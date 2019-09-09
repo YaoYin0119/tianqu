@@ -145,7 +145,7 @@ export default{
     .btnDiv{
         background:#fff;
         border-radius:15px;
-        padding:10px 0;
+        padding:10px 20px;
         margin-bottom:20px;
         margin-left:10px;
     }

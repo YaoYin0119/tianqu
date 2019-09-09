@@ -16,8 +16,8 @@
                 </p>
             </div> 
         </div>
+        <div style="margin-top:20px;"></div>
     </div>
-    
 </template>
 <script>
 export default{
@@ -51,7 +51,7 @@ export default{
 }
 .cartDiv{
     width:350px;
-    height:300px;
+    height:350px;
     margin:60px 0px;
     text-align:center;
     background-color:#fff;
@@ -87,7 +87,7 @@ export default{
 }
 .goods-item{
     width: 48%;
-    height: 230px;
+    height: 250px;
     text-align: center;
     background: rgba(14, 9, 9, 0.068);
     margin-bottom: 10px;
