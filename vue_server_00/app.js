@@ -77,7 +77,7 @@ server.get('/inlist',(req,res)=>{
 // http://127.0.0.1:3000/flist?mid=1
 server.get('/flist',(req,res)=>{
   var mid=req.query.mid;
-  var sql="SELECT carouselOne,carouselTwo,title,price,notPrice,material,pack,flowuage,fgive,pgive FROM list WHERE mid=?";
+  var sql="SELECT carouselOne,carouselTwo,title,price,notPrice,material,pack,flowuage,fgive,pgive,photoOne,photoTwo,photoThree,photoFour FROM list WHERE mid=?";
   pool.query(sql,[mid],(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
@@ -131,7 +131,7 @@ server.get('/flowerlist',(req,res)=>{
 //http://127.0.0.1:3000/flowerdel?lid=1
 server.get('/flowerdel',(req,res)=>{
   var lid=req.query.lid;
-  sql="SELECT carouselOne,carouselTwo,xtitle,xprice,xnoprice,material,pack,flowuage,fgive,pgive,photo FROM indexFlowDel WHERE lid=?";
+  sql="SELECT carouselOne,carouselTwo,xtitle,xprice,xnoprice,material,pack,flowuage,fgive,pgive,photoOne,photoTwo,photoThree,photoFour FROM indexFlowDel WHERE lid=?";
   pool.query(sql,[lid],(err,result)=>{
     if(err)throw err;
     res.send({code:1,msg:"查询成功",data:result});
