@@ -5,7 +5,7 @@
         <img class="imageLeft" src="../../../assets/less.png" @click="goBack"/>
         <img class="imageRight" src="../../../assets/c.png" @click="goCart"/>
     </div>
-    <!-- 鲜花内容区域 -->
+    <!-- 主页面鲜花内容区域 -->
     <div class="detail-item" v-for="(item,i) of indexFlowDel" :key="i">
         <div class="banner">
             <mt-swipe :auto="3000">
@@ -180,20 +180,20 @@ export default{
             var obj={lid:lid};
             this.axios.get(url,{params:obj}).then(res=>{
                 this.indexFlowDel=res.data.data;
+                console.log(this.indexFlowDel);
                 // var photos=this.indexFlowDel[0].photo;
                 // this.photo=photos.split(',');
-                // console.log(res.data.data)
+                // console.log(res)
                 // console.log(photos);
-                console.log(this.indexFlowDel);
             });
             var mid=this.$route.query.mid;
             var url="flist";
             var obj={mid:mid};
             this.axios.get(url,{params:obj}).then(res=>{
                 this.list=res.data.data;
+                console.log(this.list);
                 // var photos=this.list[0].photoes;
                 // this.photoes=photos.split(',');
-                console.log(this.list); 
                 // console.log(res);
                 // console.log(mid);
                 // console.log(photos);
@@ -201,7 +201,7 @@ export default{
         }
     },
     created(){
-        // this.loadMore();
+        this.loadMore();
     },
 }
 </script>
